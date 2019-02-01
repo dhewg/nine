@@ -43,35 +43,26 @@ Your distribution may provide a package, avoiding the need to compile the code y
 
 Compiling
 ---------
-Gallium Nine Standalone requires the `Meson Build system <https://mesonbuild.com/>`_ and ``winegcc`` to build binaries usable by WINE.
+Gallium Nine Standalone requires the `Meson Build system <https://mesonbuild.com/>`_ and ``winegcc`` to build binaries usable by  `WINE <https://winehq.org/>`_ . On `Debian <https://www.debian.org/>`_ and `Ubuntu <https://www.ubuntu.com/>`_ the required development packages are:
 
-The build dependencies are:
+``meson pkg-config winehq-staging wine-staging-dev``
 
-* WINE tools (``winegcc``, ``wrc``, ``winebuild``)
-* libwine
-* d3dadapter9
-* libx11
-* libxext
-* libx11-xcb
-* libxcb
-* libxcb-dri3
-* libxcb-present
-* libxcb-xfixes
+One can use wine staging, devel or stable but one needs to change the names accordingly. 
+
+One using Padoka PPA can ignore libd3dadapter9-mesa-dev as it is already installed with other packages.
+
+in addition for ``:amd64``:
+
+``gcc-multilib libc6-dev libd3dadapter9-mesa-dev libx11-dev libx11-xcb-dev libxcb1-dev libxcb-dri3-dev libxcb-present-dev libxcb-xfixes0-dev libgl1-mesa-dev libegl1-mesa-dev``
+
+as well as ``:i386``:
+   
+``gcc-multilib:i386 libc6-dev:i386 libd3dadapter9-mesa-dev:i386 libx11-dev:i386 libx11-xcb-dev:i386 libxcb1-dev:i386 libxcb-dri3-dev:i386 libxcb-present-dev:i386 libxcb-xfixes0-dev:i386 libgl1-mesa-dev:i386 libegl1-mesa-dev:i386``  
 
 And optionally, for the DRI2 fallback:
 
 * libgl
 * libegl
-
-On `Debian <https://www.debian.org/>`_ and `Ubuntu <https://www.ubuntu.com/>`_ the required development packages are:
-
-   ``meson pkg-config``
-
-   in addition to:
-
-   ``libc6-dev wine64-tools libwine-dev libd3dadapter9-mesa-dev libx11-dev libx11-xcb-dev libxcb1-dev libxcb-dri3-dev libxcb-present-dev libxcb-xfixes0-dev libgl1-mesa-dev libegl1-mesa-dev``
-
-   for ``:amd64`` as well as ``:i386``
 
 Most DirectX 9 games are 32bit, for which you require 32bit binaries. For the few 64bit DirectX 9 games 64bit binaries are required.
 
